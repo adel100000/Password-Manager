@@ -1,72 +1,66 @@
 # Password Manager
 
-A secure and user-friendly password manager built in Python with Tkinter.  
-It helps you safely store, encrypt, and manage your passwords all in one place.
+A secure and user-friendly **Password Manager** built in **Python**, featuring both **GUI (Tkinter)** and **Command-Line (CLI)** interfaces.  
+It safely stores, encrypts, and manages your passwords locally — no cloud storage, no tracking.
+
+
+
+##  Features
+
+-  **AES Encryption** with the `cryptography` library (Fernet)
+-  **Master Password Login** for enhanced security
+-  Add, View, Search, Edit, and Delete stored credentials
+-  **Generate strong random passwords**
+-  Import and Export passwords in CSV format
+-  Local-only data encryption (nothing ever leaves your device)
+-  **Light/Dark mode** toggle for comfort
+-  Built with a modular structure and packaged using **PyInstaller**
 
 ---
 
-## Features
+## 🧩 Project Structure
 
-- Strong AES encryption using the `cryptography` library
-- Master password login for extra security
-- Add, view, search, and delete saved passwords
-- Generate strong random passwords
-- Import and export passwords in CSV format
-- Light/Dark mode toggle for a modern look
-- Packaged as a standalone executable with PyInstaller
+| File | Description |
+|------|--------------|
+| `gui_test.py` | Main graphical interface built with Tkinter |
+| `password_manager_functions.py` | Handles encryption, file management, CSV import/export, and password generation |
+| `password_manager_project.py` | Command-line version (terminal-based) |
+| `.gitignore` | Files excluded from version control |
+| `README.md` | Project documentation |
 
----
 
-## Project Structure
 
-- gui_test.py - Main graphical user interface
-- password_manager_functions.py - Encryption and data handling
-- login_window.py - Master password login window
-- .gitignore - Files and folders to exclude from version control
-- README.md - This documentation file
+##  Technical Highlights
 
----
+- **Encryption System:**  
+  Uses `cryptography.Fernet` for AES-based symmetric encryption.  
+  Automatically generates a unique `secret.key` on first run and stores it locally.  
 
-## Installation
+- **Password Storage:**  
+  All passwords are saved in encrypted form in `passwords.txt`.  
+  Decryption happens only in memory during runtime — nothing stays in plain text.
 
-1. Clone the repository:
-   git clone https://github.com/adel100000/Password-Manager.git
+- **Key Management:**  
+  Includes built-in functions to **backup** and **restore** encryption keys for recovery.
 
-2. Install dependencies:
-   pip install cryptography
+- **Dual Interface Design:**  
+  Both GUI and CLI versions share the same encryption logic, showing modular code reuse.
 
-3. Run the application:
-   python gui_test.py
+- **Customization:**  
+  GUI version supports a **Light/Dark theme system**, using color dictionaries for dynamic UI updates.
 
----
 
-## Usage
 
-- **Add Passwords**
-  Save your credentials securely.
+##  Installation
 
-- **View or Search**
-  Display or search your saved passwords.
+```bash
+# Clone the repository
+git clone https://github.com/adel100000/Password-Manager.git
+cd Password-Manager
 
-- **Generate Passwords**
-  Quickly create strong random passwords.
+# (Optional) Create a virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-- **Export and Import**
-  Backup or restore your passwords using CSV files.
-
-- **Dark Mode**
-  Switch between light and dark themes for comfort.
-
----
-
-## Security Notes
-
-- Your passwords are always encrypted locally on your device.
-- Never share your secret.key or passwords.txt files.
-- The master password is only stored in memory during your session.
-
----
-
-## License
-
-This project is open source and available under the MIT License.
+# Install required dependencies
+pip install cryptography
