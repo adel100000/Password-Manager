@@ -18,11 +18,11 @@ It safely stores, encrypts, and manages your passwords locally — no cloud stor
 
 ---
 
-## 🧩 Project Structure
+##  Project Structure
 
 | File | Description |
-|------|--------------|
-| `gui_test.py` | Main graphical interface built with Tkinter |
+
+ `gui_test.py`  Main graphical interface built with Tkinter 
 | `password_manager_functions.py` | Handles encryption, file management, CSV import/export, and password generation |
 | `password_manager_project.py` | Command-line version (terminal-based) |
 | `.gitignore` | Files excluded from version control |
@@ -64,3 +64,51 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install required dependencies
 pip install cryptography
+
+
+To run the GUI version:
+
+python gui_test.py
+
+
+To run the Command-Line version:
+
+python password_manager_project.py
+
+## Usage
+
+Add Passwords: Securely store new credentials
+View/Search: Display or search saved passwords
+Edit Passwords (CLI only): Update stored credentials
+Generate Passwords: Create strong random passwords automatically
+Export/Import: Backup or restore passwords with CSV files
+Dark Mode: Switch between light and dark UI themes
+Wipe Data: Permanently delete all stored passwords (with confirmation)
+
+## Libraries Used
+
+cryptography – AES encryption with Fernet
+
+tkinter – GUI creation and event handling
+
+csv – Import/export of password data
+
+os – File management and key handling
+
+string & random – Password generation
+
+tkinter.messagebox, simpledialog, filedialog, scrolledtext – GUI utilities
+
+## Security Notes
+
+All passwords are encrypted locally on your device.
+
+Never share your secret.key or passwords.txt files.
+
+The master password is stored only in memory during runtime.
+
+Always keep a backup of your key file (secret.key) in a safe place.
+
+## License
+
+This project is open-source and available under the MIT License.
